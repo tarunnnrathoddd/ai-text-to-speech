@@ -90,6 +90,22 @@ function App() {
           </div>
           <div className="flex gap-3" mt-4>
             {/* ////////// */}
+            <button
+              className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-800 hover:opacity-80 text-white font-semibold rounded-2xl transition disabled:opacity-50 disabled:cursor-not-allowed"
+              onClick={speakText}
+              disabled={!aiReady || loading || !text.trim()}
+            >
+              {loading ? (
+                <div className="flex items-center justify-center gap-2">
+                  <div className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full"></div>
+                  Speaking...
+                </div>
+              ) : (
+                <div className="flex items-center justify-center gap-2 cursor-pointer">
+                  📢 Speak
+                </div>
+              )}
+            </button>
             {currentAudio && (
               <button
                 className="px-6 py-3 bg-gradient-to-r from-gray-800 to-blue-900 hover:opacity-80 text-white font-semibold rounded-2xl border border-blue-800/30 transition cursor-pointer"
